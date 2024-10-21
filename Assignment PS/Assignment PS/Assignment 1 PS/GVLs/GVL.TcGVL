@@ -3,6 +3,14 @@
   <GVL Name="GVL" Id="{cbc564b6-f054-4fb6-aa31-f1d319e83d4d}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
+	
+	LED_Stap0 : BOOL;		//Led die aangeeft dat programma in stap 0 zit
+	LED_Stap1 : BOOL;		//Led die aangeeft dat programma in stap 1 zit
+	LED_Stap2 : BOOL;		//Led die aangeeft dat programma in stap 2 zit 
+
+	BT_Stap0  : BOOL;		//Knop om naar stap 0 te gaan
+	BT_Stap1  : BOOL;		//Knop om naar stap 1 te gaan
+	BT_Stap2  : BOOL;		//Knop om naar stap 2 te gaan
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
