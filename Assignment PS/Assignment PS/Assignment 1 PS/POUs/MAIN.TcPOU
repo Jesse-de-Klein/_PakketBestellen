@@ -3,26 +3,54 @@
   <POU Name="MAIN" Id="{e0f0e210-b36e-41c1-b3ce-1766b6e10a3b}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	step : INT;
+	step 	  : INT;
+	Timer_30s : TON;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[CASE step OF
 	
-	0: 
-	GVL.LED_BestellingGeplaatst := FALSE;
-	IF GVL.BT_BestellingPlaatsen THEN
-		step := 1;
-	END_IF
+	0:  //Stap 0: Bestelling nog niet geplaatst, alle waarde op 0
+		GVL.LED_BestellingGeplaatst := FALSE;
+		GVL.LED_BestellingGeleverd  := FALSE;
+		GVL.LED_PakketBijOHP		:= FALSE;
+	
+		IF GVL.BT_BestellingPlaatsen THEN
+			step := 1;
+		END_IF
 	
 	
-	1:
+	1:	//Stap 1: Bestelling is geplaatst, wachten op deurbel 
+		GVL.LED_BestellingGeplaatst := TRUE;
 	
-	GVL.LED_BestellingGeplaatst := TRUE;
+		IF GVL.BT_Deurbel THEN
+			step := 2;
+		END_IF
+		
+		
+	2:	//Stap 2: Bezorgen staat aan de deur en wacht tot deur open wordt gedaan 
+		Timer_30s(IN := TRUE, PT := T#10S);
+		
+		IF GVL.BT_DeurOpen THEN
+			Timer_30s(IN := FALSE);
+			step := 3;
+		ELSIF Timer_30s.Q THEN
+			TImer_30s(IN := FALSE);
+			step := 4;
+		END_IF
+		
 	
-	IF GVL.BT_Deurbel THEN
-		step := 2;
-	END_IF
+	3:	//Stap 3: Pakket is bezorgd
+		GVL.LED_BestellingGeleverd := TRUE;
+		GVL.LED_PakketBijOHP := FALSE;
+		
+		
+	4:	//Stap 4: Pakket ligt bij ophaalpunt
+		GVL.LED_PakketBijOHP := TRUE;
+		
+		IF GVL.BT_BestellingOphalen THEN
+			step := 3;
+		END_IF			 
 	
 	
 END_CASE
@@ -36,12 +64,21 @@ END_IF]]></ST>
       <LineId Id="73" Count="0" />
       <LineId Id="8" Count="0" />
       <LineId Id="74" Count="0" />
+      <LineId Id="95" Count="0" />
+      <LineId Id="106" Count="0" />
+      <LineId Id="76" Count="0" />
       <LineId Id="51" Count="3" />
       <LineId Id="12" Count="0" />
       <LineId Id="23" Count="0" />
-      <LineId Id="55" Count="0" />
       <LineId Id="27" Count="0" />
       <LineId Id="59" Count="3" />
+      <LineId Id="77" Count="6" />
+      <LineId Id="86" Count="3" />
+      <LineId Id="84" Count="0" />
+      <LineId Id="90" Count="2" />
+      <LineId Id="94" Count="0" />
+      <LineId Id="105" Count="0" />
+      <LineId Id="96" Count="7" />
       <LineId Id="33" Count="0" />
       <LineId Id="38" Count="0" />
       <LineId Id="9" Count="0" />

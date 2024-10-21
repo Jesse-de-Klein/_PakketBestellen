@@ -4,7 +4,63 @@
     <XmlArchive>
       <Data>
         <o xml:space="preserve" t="GlobalTextListObject">
-          <l n="TextList" t="ArrayList" />
+          <l n="TextList" t="ArrayList" cet="TextListRow">
+            <o>
+              <v n="TextID">"680"</v>
+              <v n="TextDefault">"Aanwezig"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"946"</v>
+              <v n="TextDefault">"Besstelling geplaatst"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"760"</v>
+              <v n="TextDefault">"Besstelling plaatsen"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"106"</v>
+              <v n="TextDefault">"Bezorgd!"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"555"</v>
+              <v n="TextDefault">"Deur open"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"815"</v>
+              <v n="TextDefault">"Deurbel"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"91"</v>
+              <v n="TextDefault">"Huis"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"481"</v>
+              <v n="TextDefault">"Ophaalpunt"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"757"</v>
+              <v n="TextDefault">"Ophalen"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"465"</v>
+              <v n="TextDefault">"Reset"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"641"</v>
+              <v n="TextDefault">"Webwinkel"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+          </l>
           <l n="Languages" t="ArrayList" />
           <v n="GuidInit">{6f5d5136-9005-4f68-9b6f-5b6301a1e261}</v>
           <v n="GuidReInit">{df81e278-8bfd-46d8-a6c3-a2574eb8be63}</v>
@@ -15,6 +71,8 @@
         <Type n="ArrayList">System.Collections.ArrayList</Type>
         <Type n="GlobalTextListObject">{63784cbb-9ba0-45e6-9d69-babf3f040511}</Type>
         <Type n="Guid">System.Guid</Type>
+        <Type n="String">System.String</Type>
+        <Type n="TextListRow">{53da1be7-ad25-47c3-b0e8-e26286dad2e0}</Type>
       </TypeList>
     </XmlArchive>
   </GlobalTextList>

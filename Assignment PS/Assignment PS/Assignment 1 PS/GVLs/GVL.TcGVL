@@ -5,12 +5,17 @@
 VAR_GLOBAL
 	
 	LED_BestellingGeplaatst : BOOL;		//Led die aangeeft dat bestelling is geplaatst
-
+	LED_BestellingGeleverd	: BOOL;		//Led die aangeeft dat bestelling is geleverd
+	LED_PakketBijOHP		: BOOL;		//Led die aangeeft dat pakket bij ophaalpunt ligt
+	
 	BT_BestellingPlaatsen	: BOOL;		//Knop om bestelling te simuleren
 	BT_Deurbel				: BOOL;		//Knop die deurbel simuleert
+	BT_DeurOpen				: BOOL;		//Simuleert of deur open wordt gedaan
+	BT_BestellingOpgehaald  : BOOL;		//Geeft aan wanneer klant bestelling ophaalt bij ophaalpunt
+	BT_BestellingOphalen	: BOOL;		//Knop die simuleert dat bestelling is opgehaald bij ophaalpunt
 	
 	
-	Reset					: BOOL;		//Reset programma
+	Reset					: BOOL;		//Reset programma naar stap 0
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
