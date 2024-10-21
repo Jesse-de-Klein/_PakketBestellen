@@ -3,12 +3,12 @@
   <POU Name="TrackAndTraceInfo" Id="{2ce61888-764b-4d6a-b722-76474068337d}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION TrackAndTraceInfo : STRING
 VAR_INPUT
-	step : INT;	//Input parameter, huidige stap
+	stap : INT;	//Input parameter, huidige stap
 END_VAR
 
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[CASE step OF
+      <ST><![CDATA[CASE stap OF
 	0:	TrackAndTraceInfo := 'Wachten op bestelling.';
 	1:	TrackAndTraceInfo := 'Bestelling geplaatst!';
 	2:	TrackAndTraceInfo := 'Bezorgen staat voor uw deur.';
