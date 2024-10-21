@@ -41,6 +41,11 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"112"</v>
+              <v n="TextDefault">"Laten bezorgen"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"481"</v>
               <v n="TextDefault">"Ophaalpunt"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -48,6 +53,11 @@
             <o>
               <v n="TextID">"757"</v>
               <v n="TextDefault">"Ophalen"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"969"</v>
+              <v n="TextDefault">"Ophalen bij ophaalpunt"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>

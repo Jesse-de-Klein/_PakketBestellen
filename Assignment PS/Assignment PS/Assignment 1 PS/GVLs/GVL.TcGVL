@@ -14,6 +14,8 @@ VAR_GLOBAL
 	BT_BestellingOpgehaald  : BOOL;		//Geeft aan wanneer klant bestelling ophaalt bij ophaalpunt
 	BT_BestellingOphalen	: BOOL;		//Knop die simuleert dat bestelling is opgehaald bij ophaalpunt
 	
+	SW_OphalenOfBezorgen	: BOOL;		//Geeft de klant de optie om pakket te laten bezorgen of op te halen bij ophaalpunt
+	
 	
 	Reset					: BOOL;		//Reset programma naar stap 0
 END_VAR]]></Declaration>
