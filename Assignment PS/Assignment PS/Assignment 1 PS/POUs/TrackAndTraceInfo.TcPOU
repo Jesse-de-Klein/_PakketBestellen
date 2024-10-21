@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="TrackAndTraceInfo" Id="{2ce61888-764b-4d6a-b722-76474068337d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION TrackAndTraceInfo : STRING
+VAR_INPUT
+	step : INT;	//Input parameter, huidige stap
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE step OF
+	0:	TrackAndTraceInfo := 'Wachten op bestelling.';
+	1:	TrackAndTraceInfo := 'Bestelling geplaatst!';
+	2:	TrackAndTraceInfo := 'Bezorgen staat voor uw deur.';
+	3:	TrackAndTraceInfo := 'Bestelling is in uw handen!';
+	4:	TrackAndTraceInfo := 'Bestelling aanwezig bij ophaalpunt.';
+	ELSE
+		TrackAndTraceInfo := 'Status onbekend.';
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="TrackAndTraceInfo">
+      <LineId Id="7" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="12" Count="2" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="15" Count="1" />
+      <LineId Id="10" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

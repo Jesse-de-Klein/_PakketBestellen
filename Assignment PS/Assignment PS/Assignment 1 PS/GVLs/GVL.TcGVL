@@ -13,8 +13,10 @@ VAR_GLOBAL
 	BT_DeurOpen				: BOOL;		//Simuleert of deur open wordt gedaan
 	BT_BestellingOpgehaald  : BOOL;		//Geeft aan wanneer klant bestelling ophaalt bij ophaalpunt
 	BT_BestellingOphalen	: BOOL;		//Knop die simuleert dat bestelling is opgehaald bij ophaalpunt
+	BT_ToonStatus			: BOOL;		//Laat status van bestelling zien zordra er op deze knop gedrukt wordt.
 	
 	SW_OphalenOfBezorgen	: BOOL;		//Geeft de klant de optie om pakket te laten bezorgen of op te halen bij ophaalpunt
+	TX_PakketInfo			: STRING;	//Geeft info over bestelling
 	
 	
 	Reset					: BOOL;		//Reset programma naar stap 0

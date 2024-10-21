@@ -6,6 +6,11 @@
         <o xml:space="preserve" t="GlobalTextListObject">
           <l n="TextList" t="ArrayList" cet="TextListRow">
             <o>
+              <v n="TextID">"913"</v>
+              <v n="TextDefault">"%s"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"680"</v>
               <v n="TextDefault">"Aanwezig"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -63,6 +68,11 @@
             <o>
               <v n="TextID">"465"</v>
               <v n="TextDefault">"Reset"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"28"</v>
+              <v n="TextDefault">"Toon pakket info"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
