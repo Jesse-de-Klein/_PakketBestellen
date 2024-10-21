@@ -4,13 +4,13 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 	
-	LED_Stap0 : BOOL;		//Led die aangeeft dat programma in stap 0 zit
-	LED_Stap1 : BOOL;		//Led die aangeeft dat programma in stap 1 zit
-	LED_Stap2 : BOOL;		//Led die aangeeft dat programma in stap 2 zit 
+	LED_BestellingGeplaatst : BOOL;		//Led die aangeeft dat bestelling is geplaatst
 
-	BT_Stap0  : BOOL;		//Knop om naar stap 0 te gaan
-	BT_Stap1  : BOOL;		//Knop om naar stap 1 te gaan
-	BT_Stap2  : BOOL;		//Knop om naar stap 2 te gaan
+	BT_BestellingPlaatsen	: BOOL;		//Knop om bestelling te simuleren
+	BT_Deurbel				: BOOL;		//Knop die deurbel simuleert
+	
+	
+	Reset					: BOOL;		//Reset programma
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
