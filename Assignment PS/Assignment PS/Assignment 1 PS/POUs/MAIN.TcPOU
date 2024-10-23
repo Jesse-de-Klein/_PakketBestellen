@@ -1,12 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
   <POU Name="MAIN" Id="{e0f0e210-b36e-41c1-b3ce-1766b6e10a3b}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM MAIN
+    <Declaration><![CDATA[//Individuele eindopdracht Proces&Safety
+//Jesse de Klein
+//516392
+//10-11-2024
+
+PROGRAM MAIN
 VAR
 	stap 	  : INT;
 	Timer_30s : TON;
-END_VAR
-]]></Declaration>
+END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[CASE stap OF
 	
@@ -72,6 +76,7 @@ END_VAR
 	
 END_CASE
 
+
 //Aanroepen functie voor het tonen van de status van het pakket
 IF GVL.BT_ToonStatus THEN
 	GVL.TX_PakketInfo := TrackAndTraceInfo(stap);
@@ -127,6 +132,7 @@ END_IF]]></ST>
       <LineId Id="101" Count="2" />
       <LineId Id="33" Count="0" />
       <LineId Id="9" Count="0" />
+      <LineId Id="143" Count="0" />
       <LineId Id="136" Count="0" />
       <LineId Id="123" Count="0" />
       <LineId Id="118" Count="0" />

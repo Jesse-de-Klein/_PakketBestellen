@@ -8,17 +8,19 @@ END_VAR
 
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[CASE stap OF
+      <ST><![CDATA[//Functie kijkt in welke stap het programma zich bevindt en op basis daarvan toont het de bijbehorende status
+CASE stap OF
 	0:	TrackAndTraceInfo := 'Wachten op bestelling.';
 	1:	TrackAndTraceInfo := 'Bestelling geplaatst!';
-	2:	TrackAndTraceInfo := 'Bezorgen staat voor uw deur.';
-	3:	TrackAndTraceInfo := 'Bestelling is in uw handen!';
+	2:	TrackAndTraceInfo := 'Bezorger staat voor uw deur.';
+	3:	TrackAndTraceInfo := 'Bestellingn u is iw handen!';
 	4:	TrackAndTraceInfo := 'Bestelling aanwezig bij ophaalpunt.';
 	ELSE
 		TrackAndTraceInfo := 'Status onbekend.';
 END_CASE]]></ST>
     </Implementation>
     <LineIds Name="TrackAndTraceInfo">
+      <LineId Id="17" Count="0" />
       <LineId Id="7" Count="0" />
       <LineId Id="9" Count="0" />
       <LineId Id="12" Count="2" />
