@@ -13,7 +13,7 @@ CASE stap OF
 	0:	TrackAndTraceInfo := 'Wachten op bestelling.';
 	1:	TrackAndTraceInfo := 'Bestelling geplaatst!';
 	2:	TrackAndTraceInfo := 'Bezorger staat voor uw deur.';
-	3:	TrackAndTraceInfo := 'Bestellingn u is iw handen!';
+	3:	TrackAndTraceInfo := 'Bestelling is in uw handen!';
 	4:	TrackAndTraceInfo := 'Bestelling aanwezig bij ophaalpunt.';
 	ELSE
 		TrackAndTraceInfo := 'Status onbekend.';

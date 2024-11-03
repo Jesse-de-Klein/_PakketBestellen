@@ -28,7 +28,13 @@
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Amazon.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\PostNL.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\TrackAndTraceInfo.TcPOU">

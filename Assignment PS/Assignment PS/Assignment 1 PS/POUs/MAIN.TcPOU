@@ -8,138 +8,15 @@
 
 PROGRAM MAIN
 VAR
-	stap 	  : INT;
-	Timer_30s : TON;
+	
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[CASE stap OF
-	
-	0:  //Stap 0: Bestelling nog niet geplaatst, alle waarde op 0
-		Timer_30s(IN := FALSE);
-		GVL.LED_BestellingGeplaatst := FALSE;
-		GVL.LED_BestellingGeleverd  := FALSE;
-		GVL.LED_PakketBijOHP		:= FALSE;
-		
-		//Schakelt naar stap 1 zodra bestelling wordt geplaatst
-		IF GVL.BT_BestellingPlaatsen THEN
-			stap := 1;
-		END_IF
-	
-	
-		
-	1:	//Stap 1: Bestelling is geplaatst, wachten op deurbel 
-		GVL.LED_BestellingGeplaatst := TRUE;
-	
-		//Geeft de klant de optie om pakket te laten bezorgen of zelf op te halen
-		//Kiest de klant voor zelf ophalen zal het programma naar stap 4 gaan
-		IF GVL.SW_OphalenOfBezorgen THEN
-			stap := 4;
-		END_IF
-		
-		IF GVL.BT_Deurbel THEN
-			stap := 2;
-		END_IF
-		
-		
-		
-	2:	//Stap 2: Bezorgen staat aan de deur en wacht tot deur open wordt gedaan 
-		
-		//Start timer. Wanneer de deur na 10 seconden nog niet open is zal het pakket naar het ophaalpunt worden gebracht
-		Timer_30s(IN := TRUE, PT := T#10S);
-		
-		//Wacht tot deur open gaat
-		IF GVL.BT_DeurOpen THEN
-			Timer_30s(IN := FALSE);
-			stap := 3;
-			
-		//Gaat de deur niet open wordt het pakken naar het ophaalpunt gebracht (stap 4)
-		ELSIF Timer_30s.Q THEN
-			TImer_30s(IN := FALSE);
-			stap := 4;
-		END_IF
-		
-		
-	
-	3:	//Stap 3: Pakket is bezorgd
-		GVL.LED_BestellingGeleverd := TRUE;
-		GVL.LED_PakketBijOHP := FALSE;
-		
-		
-		
-	4:	//Stap 4: Pakket ligt bij ophaalpunt
-		GVL.LED_PakketBijOHP := TRUE;
-		
-		//Wanneer pakket wordt opgehaald gaat het programma naar stap 3
-		IF GVL.BT_BestellingOphalen THEN
-			stap := 3;
-		END_IF			 
-	
-END_CASE
-
-
-//Aanroepen functie voor het tonen van de status van het pakket
-IF GVL.BT_ToonStatus THEN
-	GVL.TX_PakketInfo := TrackAndTraceInfo(stap);
-END_IF
-
-//Reset het programma naar stap 0
-IF GVL.Reset THEN
-	stap := 0;
-END_IF]]></ST>
+      <ST><![CDATA[Amazon();
+PostNL();]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="2" Count="0" />
-      <LineId Id="73" Count="0" />
-      <LineId Id="8" Count="0" />
-      <LineId Id="113" Count="0" />
-      <LineId Id="74" Count="0" />
-      <LineId Id="95" Count="0" />
-      <LineId Id="106" Count="0" />
-      <LineId Id="76" Count="0" />
-      <LineId Id="127" Count="0" />
-      <LineId Id="51" Count="3" />
-      <LineId Id="12" Count="0" />
-      <LineId Id="114" Count="0" />
-      <LineId Id="23" Count="0" />
-      <LineId Id="27" Count="0" />
-      <LineId Id="59" Count="0" />
-      <LineId Id="128" Count="1" />
-      <LineId Id="119" Count="0" />
-      <LineId Id="121" Count="1" />
-      <LineId Id="120" Count="0" />
-      <LineId Id="60" Count="2" />
-      <LineId Id="77" Count="0" />
-      <LineId Id="115" Count="0" />
-      <LineId Id="78" Count="2" />
-      <LineId Id="131" Count="0" />
-      <LineId Id="130" Count="0" />
-      <LineId Id="81" Count="0" />
-      <LineId Id="132" Count="0" />
-      <LineId Id="82" Count="1" />
-      <LineId Id="86" Count="0" />
-      <LineId Id="133" Count="1" />
-      <LineId Id="87" Count="2" />
-      <LineId Id="84" Count="0" />
-      <LineId Id="90" Count="0" />
-      <LineId Id="116" Count="0" />
-      <LineId Id="91" Count="1" />
-      <LineId Id="94" Count="0" />
-      <LineId Id="105" Count="0" />
-      <LineId Id="96" Count="1" />
-      <LineId Id="117" Count="0" />
-      <LineId Id="98" Count="2" />
-      <LineId Id="135" Count="0" />
-      <LineId Id="101" Count="2" />
-      <LineId Id="33" Count="0" />
-      <LineId Id="9" Count="0" />
-      <LineId Id="143" Count="0" />
-      <LineId Id="136" Count="0" />
-      <LineId Id="123" Count="0" />
-      <LineId Id="118" Count="0" />
-      <LineId Id="124" Count="2" />
-      <LineId Id="68" Count="0" />
-      <LineId Id="67" Count="0" />
-      <LineId Id="69" Count="1" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="153" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="Amazon" Id="{b4096e87-e9ed-471b-9cb5-9916157000f8}" SpecialFunc="None">
+    <Declaration><![CDATA[//Individuele eindopdracht Proces&Safety
+//Jesse de Klein
+//516392
+//10-11-2024
+
+PROGRAM Amazon
+VAR
+	stap 	  : INT;
+	Timer_30s : TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+CASE stap OF
+	0:
+	
+END_CASE
+
+
+
+
+
+
+
+
+(*CASE stap OF
+	
+	0:  //Stap 0: Bestelling nog niet geplaatst, alle waarde op 0
+		Timer_30s(IN := FALSE);
+		GVL.LED_BestellingGeplaatst := FALSE;
+		GVL.LED_BestellingGeleverd  := FALSE;
+		GVL.LED_PakketBijOHP		:= FALSE;
+		
+		//Schakelt naar stap 1 zodra bestelling wordt geplaatst
+		IF GVL.BT_BestellingPlaatsen THEN
+			stap := 1;
+		END_IF
+	
+	
+		
+	1:	//Stap 1: Bestelling is geplaatst, wachten op deurbel 
+		GVL.LED_BestellingGeplaatst := TRUE;
+	
+		//Geeft de klant de optie om pakket te laten bezorgen of zelf op te halen
+		//Kiest de klant voor zelf ophalen zal het programma naar stap 4 gaan
+		IF GVL.SW_OphalenOfBezorgen THEN
+			stap := 4;
+		END_IF
+		
+		IF GVL.BT_Deurbel THEN
+			stap := 2;
+		END_IF
+		
+		
+		
+	2:	//Stap 2: Bezorgen staat aan de deur en wacht tot deur open wordt gedaan 
+		
+		//Start timer. Wanneer de deur na 10 seconden nog niet open is zal het pakket naar het ophaalpunt worden gebracht
+		Timer_30s(IN := TRUE, PT := T#10S);
+		
+		//Wacht tot deur open gaat
+		IF GVL.BT_DeurOpen THEN
+			Timer_30s(IN := FALSE);
+			stap := 3;
+			
+		//Gaat de deur niet open wordt het pakken naar het ophaalpunt gebracht (stap 4)
+		ELSIF Timer_30s.Q THEN
+			TImer_30s(IN := FALSE);
+			stap := 4;
+		END_IF
+		
+		
+	
+	3:	//Stap 3: Pakket is bezorgd
+		GVL.LED_BestellingGeleverd := TRUE;
+		GVL.LED_PakketBijOHP := FALSE;
+		
+		
+		
+	4:	//Stap 4: Pakket ligt bij ophaalpunt
+		GVL.LED_PakketBijOHP := TRUE;
+		
+		//Wanneer pakket wordt opgehaald gaat het programma naar stap 3
+		IF GVL.BT_BestellingOphalen THEN
+			stap := 3;
+		END_IF			 
+	
+END_CASE
+
+
+//Aanroepen functie voor het tonen van de status van het pakket
+IF GVL.BT_ToonStatus THEN
+	GVL.TX_PakketInfo := TrackAndTraceInfo(stap);
+END_IF
+
+//Reset het programma naar stap 0
+IF GVL.Reset THEN
+	stap := 0;
+END_IF
+
+*)]]></ST>
+    </Implementation>
+    <LineIds Name="Amazon">
+      <LineId Id="88" Count="1" />
+      <LineId Id="104" Count="1" />
+      <LineId Id="101" Count="0" />
+      <LineId Id="90" Count="7" />
+      <LineId Id="6" Count="72" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="98" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
