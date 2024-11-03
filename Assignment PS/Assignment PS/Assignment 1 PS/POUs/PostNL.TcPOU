@@ -3,13 +3,109 @@
   <POU Name="PostNL" Id="{93e07b44-ce98-4bf0-8ee4-9a497784c1d4}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PostNL
 VAR
+	Stap : INT;
+	Timer: TON;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[
+CASE stap OF
+	
+	0:	//Stap 0: Wachten op pakket van webshop
+	IF GVL.TEMP_Overhandigen THEN
+		stap := 1;
+	END_IF
+	
+	
+	
+	1:	//Stap 1: Pakket binnen bij PostNL, wachten op sorteren
+	IF GVL.BT_PakketSorteren THEN
+		IF GVL.TEMP_OhpOfBezonrgen = TRUE THEN
+			stap := 2;
+			ELSIF GVL.TEMP_OhpOfBezonrgen = FALSE THEN
+				stap := 3;
+		END_IF
+	END_IF
+	
+	
+	
+	2:	//Stap 2: Pakket ligt bij het ophaalpunt
+	GVL.LED_PakketBijOHP := TRUE;
+		
+		//Wanneer pakket wordt opgehaald gaat het programma naar stap 3
+		IF GVL.BT_BestellingOphalen THEN
+			stap := 4;
+		END_IF		
+		
+		
+	
+	3:
+	//Start timer. Wanneer de deur na 10 seconden nog niet open is zal het pakket naar het ophaalpunt worden gebracht
+	Timer(IN := TRUE, PT := T#10S);
+		
+	//Wacht tot deur open gaat
+	IF GVL.BT_DeurOpen THEN
+		Timer(IN := FALSE);
+		stap := 4;
+			
+	//Gaat de deur niet open wordt het pakken naar het ophaalpunt gebracht (stap 4)
+	ELSIF Timer.Q THEN
+		Timer(IN := FALSE);
+		stap := 2;
+	END_IF
+		
+		
+		
+	4:	//Pakket is bezorgd
+	GVL.LED_BestellingGeleverd := TRUE;
+	GVL.LED_PakketBijOHP := FALSE;
+		
+END_CASE
+
+
+
+
+//Aanroepen functie voor het tonen van de status van het pakket
+IF GVL.BT_ToonStatus THEN
+	GVL.TX_PakketInfo := TrackAndTraceInfo(stap);
+END_IF
+
+//Reset het programma naar stap 0
+IF GVL.Reset THEN
+	stap := 0;
+END_IF]]></ST>
     </Implementation>
     <LineIds Name="PostNL">
+      <LineId Id="7" Count="0" />
       <LineId Id="5" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="16" Count="6" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="41" Count="1" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="43" Count="2" />
+      <LineId Id="47" Count="4" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="53" Count="1" />
+      <LineId Id="56" Count="11" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="71" Count="1" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="73" Count="2" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="34" Count="1" />
+      <LineId Id="24" Count="4" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="30" Count="3" />
+      <LineId Id="29" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

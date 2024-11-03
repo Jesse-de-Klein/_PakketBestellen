@@ -66,6 +66,11 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"976"</v>
+              <v n="TextDefault">"Overhandigen --&gt;"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"465"</v>
               <v n="TextDefault">"Reset"</v>
               <l n="LanguageTexts" t="ArrayList" />
