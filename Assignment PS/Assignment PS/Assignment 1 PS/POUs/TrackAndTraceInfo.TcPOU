@@ -10,11 +10,12 @@ END_VAR
     <Implementation>
       <ST><![CDATA[//Functie kijkt in welke stap het programma zich bevindt en op basis daarvan toont het de bijbehorende status
 CASE stap OF
-	0:	TrackAndTraceInfo := 'Pakket nog niet ontvangen van webshop';
-	1:	TrackAndTraceInfo := 'Pakket ontvang en wordt gesorteerd';
-	2:	TrackAndTraceInfo := 'Uw pakket ligt bij het ophaalpunt';
-	3:	TrackAndTraceInfo := 'Bezorger is onderweg!';
-	4:	TrackAndTraceInfo := 'Pakket is in uw handen!';
+	0:	TrackAndTraceInfo := 'Pakket nog niet ontvangen van webshop.';
+	1:	TrackAndTraceInfo := 'Pakket ontvangen en wordt gesorteerd.';
+	2:	TrackAndTraceInfo := 'Pakket is gesorteerd.';
+	3:	TrackAndTraceInfo := 'Uw pakket ligt bij het ophaalpunt.';
+	4:	TrackAndTraceInfo := 'Bezorger is onderweg.';
+	5:	TrackAndTraceInfo := 'Pakket is in uw handen!';
 	ELSE
 		TrackAndTraceInfo := 'Status onbekend.';
 END_CASE]]></ST>
@@ -25,6 +26,7 @@ END_CASE]]></ST>
       <LineId Id="9" Count="0" />
       <LineId Id="12" Count="2" />
       <LineId Id="11" Count="0" />
+      <LineId Id="23" Count="0" />
       <LineId Id="15" Count="1" />
       <LineId Id="10" Count="0" />
     </LineIds>

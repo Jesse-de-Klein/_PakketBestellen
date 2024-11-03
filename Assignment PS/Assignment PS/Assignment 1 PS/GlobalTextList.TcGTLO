@@ -16,13 +16,28 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"298"</v>
+              <v n="TextDefault">"Amazon"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"946"</v>
               <v n="TextDefault">"Besstelling geplaatst"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"797"</v>
+              <v n="TextDefault">"Besstelling ingepakt"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"760"</v>
               <v n="TextDefault">"Besstelling plaatsen"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"498"</v>
+              <v n="TextDefault">"Bestelling inpakken"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -38,6 +53,11 @@
             <o>
               <v n="TextID">"815"</v>
               <v n="TextDefault">"Deurbel"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"225"</v>
+              <v n="TextDefault">"Gesorteerd"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -71,13 +91,43 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"999"</v>
+              <v n="TextDefault">"PostNL"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"465"</v>
               <v n="TextDefault">"Reset"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"526"</v>
+              <v n="TextDefault">"Sorteren"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"796"</v>
+              <v n="TextDefault">"Toon "</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"28"</v>
               <v n="TextDefault">"Toon pakket info"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"33"</v>
+              <v n="TextDefault">"Toon T&amp;T info"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"171"</v>
+              <v n="TextDefault">"Toon T&amp;T infoToon "</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"930"</v>
+              <v n="TextDefault">"Toon T7T info"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>

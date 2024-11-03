@@ -12,6 +12,10 @@ END_VAR
 CASE stap OF
 	
 	0:	//Stap 0: Wachten op pakket van webshop
+	GVL.LED_BestellingGeleverd 	 := FALSE;
+	GVL.LED_PakketBijOHP	   	 := FALSE;
+	GVL.LED_BestellingGesorteerd := FALSE;
+	
 	IF GVL.TEMP_Overhandigen THEN
 		stap := 1;
 	END_IF
@@ -20,43 +24,52 @@ CASE stap OF
 	
 	1:	//Stap 1: Pakket binnen bij PostNL, wachten op sorteren
 	IF GVL.BT_PakketSorteren THEN
-		IF GVL.TEMP_OhpOfBezonrgen = TRUE THEN
-			stap := 2;
-			ELSIF GVL.TEMP_OhpOfBezonrgen = FALSE THEN
-				stap := 3;
-		END_IF
+		GVL.LED_BestellingGesorteerd := TRUE;
+		stap := 2;
 	END_IF
 	
 	
 	
-	2:	//Stap 2: Pakket ligt bij het ophaalpunt
+	2:	//Stap 2: Pakket is gesorteerd
+	IF GVL.TEMP_OhpOfBezorgen THEN
+		stap := 3;
+	END_IF
+		
+	IF GVL.BT_Deurbel THEN
+		stap := 4;
+	END_IF
+	
+	
+	3:	//Stap 3: Pakket ligt bij het ophaalpunt
 	GVL.LED_PakketBijOHP := TRUE;
 		
-		//Wanneer pakket wordt opgehaald gaat het programma naar stap 3
-		IF GVL.BT_BestellingOphalen THEN
-			stap := 4;
-		END_IF		
+	//Wanneer pakket wordt opgehaald gaat het programma naar stap 3
+	IF GVL.BT_BestellingOphalen THEN
+		stap := 5;
+	END_IF		
 		
 		
 	
-	3:
+	4:	//Stap 4:
 	//Start timer. Wanneer de deur na 10 seconden nog niet open is zal het pakket naar het ophaalpunt worden gebracht
+	IF GVL.BT_Deurbel THEN
 	Timer(IN := TRUE, PT := T#10S);
+	END_IF
 		
 	//Wacht tot deur open gaat
 	IF GVL.BT_DeurOpen THEN
 		Timer(IN := FALSE);
-		stap := 4;
+		stap := 5;
 			
 	//Gaat de deur niet open wordt het pakken naar het ophaalpunt gebracht (stap 4)
 	ELSIF Timer.Q THEN
 		Timer(IN := FALSE);
-		stap := 2;
+		stap := 3;
 	END_IF
 		
 		
 		
-	4:	//Pakket is bezorgd
+	5:	//Stap 5: Pakket is bezorgd
 	GVL.LED_BestellingGeleverd := TRUE;
 	GVL.LED_PakketBijOHP := FALSE;
 		
@@ -80,21 +93,33 @@ END_IF]]></ST>
       <LineId Id="5" Count="0" />
       <LineId Id="13" Count="0" />
       <LineId Id="8" Count="0" />
+      <LineId Id="92" Count="0" />
+      <LineId Id="94" Count="0" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="93" Count="0" />
       <LineId Id="12" Count="0" />
       <LineId Id="16" Count="6" />
-      <LineId Id="36" Count="0" />
+      <LineId Id="95" Count="0" />
       <LineId Id="38" Count="0" />
-      <LineId Id="41" Count="1" />
-      <LineId Id="39" Count="0" />
       <LineId Id="37" Count="0" />
       <LineId Id="14" Count="0" />
-      <LineId Id="43" Count="2" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="84" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="85" Count="1" />
+      <LineId Id="91" Count="0" />
+      <LineId Id="88" Count="2" />
+      <LineId Id="82" Count="1" />
+      <LineId Id="44" Count="1" />
       <LineId Id="47" Count="4" />
       <LineId Id="46" Count="0" />
       <LineId Id="52" Count="0" />
       <LineId Id="76" Count="0" />
       <LineId Id="53" Count="1" />
-      <LineId Id="56" Count="11" />
+      <LineId Id="56" Count="1" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="58" Count="9" />
       <LineId Id="55" Count="0" />
       <LineId Id="69" Count="0" />
       <LineId Id="71" Count="1" />

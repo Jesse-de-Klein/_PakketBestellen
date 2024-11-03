@@ -4,29 +4,30 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 	
-	LED_BestellingGeplaatst : BOOL;		//Led die aangeeft dat bestelling is geplaatst
-	LED_BestellingGeleverd	: BOOL;		//Led die aangeeft dat bestelling is geleverd
-	LED_PakketBijOHP		: BOOL;		//Led die aangeeft dat pakket bij ophaalpunt ligt
-	LED_BestellingIngepakt	: BOOL;		//Led die aangeeft dat het pakket is ingepakt door de webshop
+	LED_BestellingGeplaatst  : BOOL;		//Led die aangeeft dat bestelling is geplaatst
+	LED_BestellingGeleverd   : BOOL;		//Led die aangeeft dat bestelling is geleverd
+	LED_PakketBijOHP		 : BOOL;		//Led die aangeeft dat pakket bij ophaalpunt ligt
+	LED_BestellingIngepakt	 : BOOL;		//Led die aangeeft dat het pakket is ingepakt door de webshop
+	LED_BestellingGesorteerd : BOOL;
 	
-	BT_BestellingPlaatsen	: BOOL;		//Knop om bestelling te simuleren
-	BT_Deurbel				: BOOL;		//Knop die deurbel simuleert
-	BT_DeurOpen				: BOOL;		//Simuleert of deur open wordt gedaan
-	BT_BestellingOpgehaald  : BOOL;		//Geeft aan wanneer klant bestelling ophaalt bij ophaalpunt
-	BT_BestellingOphalen	: BOOL;		//Knop die simuleert dat bestelling is opgehaald bij ophaalpunt
-	BT_ToonStatus			: BOOL;		//Laat status van bestelling zien zordra er op deze knop gedrukt wordt
-	BT_BestellingIngepakt	: BOOL;		//Knop die simuleert dat de beslling is ingepakt
-	BT_Overhandigen			: BOOL;		//Knop die simuleert dat pakket is overhandigd aan PostNL
-	BT_PakketSorteren		: BOOL;		//Knop die simuleert dat pakket is gesorteerd bij PostNL
+	BT_BestellingPlaatsen	 : BOOL;		//Knop om bestelling te simuleren
+	BT_Deurbel				 : BOOL;		//Knop die deurbel simuleert
+	BT_DeurOpen				 : BOOL;		//Simuleert of deur open wordt gedaan
+	BT_BestellingOpgehaald   : BOOL;		//Geeft aan wanneer klant bestelling ophaalt bij ophaalpunt
+	BT_BestellingOphalen	 : BOOL;		//Knop die simuleert dat bestelling is opgehaald bij ophaalpunt
+	BT_ToonStatus			 : BOOL;		//Laat status van bestelling zien zordra er op deze knop gedrukt wordt
+	BT_BestellingIngepakt	 : BOOL;		//Knop die simuleert dat de beslling is ingepakt
+	BT_Overhandigen			 : BOOL;		//Knop die simuleert dat pakket is overhandigd aan PostNL
+	BT_PakketSorteren		 : BOOL;		//Knop die simuleert dat pakket is gesorteerd bij PostNL
+ 	
+	TEMP_OhpOfBezorgen		 : BOOL;		//Tijdelijke variabele voor ophalen of bezorgen van pakket. Dit zodat het tijdens het proces niet aangepast kan worden
+	TEMP_Overhandigen		 : BOOL; 		//TIjdelijke variabele voor overhandigen pakket naar PostNL. Dit zodat het tijdens het bezorg proces niet reset
 	
-	TEMP_OhpOfBezonrgen		: BOOL;		//Tijdelijke variabele voor ophalen of bezorgen van pakket. Dit zodat het tijdens het proces niet aangepast kan worden
-	TEMP_Overhandigen		: BOOL; 	//TIjdelijke variabele voor overhandigen pakket naar PostNL. Dit zodat het tijdens het bezorg proces niet reset
-	
-	SW_OphalenOfBezorgen	: BOOL;		//Geeft de klant de optie om pakket te laten bezorgen of op te halen bij ophaalpunt
-	TX_PakketInfo			: STRING;	//Geeft info over bestelling
+	SW_OphalenOfBezorgen	 : BOOL;		//Geeft de klant de optie om pakket te laten bezorgen of op te halen bij ophaalpunt
+	TX_PakketInfo			 : STRING;		//Geeft info over bestelling
 	
 	
-	Reset					: BOOL;		//Reset programma naar stap 0
+	Reset					 : BOOL;		//Reset programma naar stap 0
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
