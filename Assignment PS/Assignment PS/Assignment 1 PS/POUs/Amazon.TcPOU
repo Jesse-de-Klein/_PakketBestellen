@@ -40,7 +40,6 @@ CASE stap OF
 	2:	//Stap 2: Bestelling is ingepakt en wordt overhandigd aan PostNL
 	IF GVL.BT_Overhandigen THEN
 		GVL.TEMP_Overhandigen := GVL.BT_Overhandigen;
-		stap := 0;
 	END_IF
 	
 END_CASE
@@ -153,7 +152,7 @@ END_IF
       <LineId Id="131" Count="1" />
       <LineId Id="136" Count="0" />
       <LineId Id="140" Count="0" />
-      <LineId Id="137" Count="1" />
+      <LineId Id="138" Count="0" />
       <LineId Id="133" Count="0" />
       <LineId Id="101" Count="0" />
       <LineId Id="92" Count="1" />

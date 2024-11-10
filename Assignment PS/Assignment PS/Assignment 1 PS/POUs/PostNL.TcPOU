@@ -15,6 +15,7 @@ CASE stap OF
 	GVL.LED_BestellingGeleverd 	 := FALSE;
 	GVL.LED_PakketBijOHP	   	 := FALSE;
 	GVL.LED_BestellingGesorteerd := FALSE;
+	Timer(IN := FALSE);
 	
 	IF GVL.TEMP_Overhandigen THEN
 		stap := 1;
@@ -52,10 +53,8 @@ CASE stap OF
 	
 	4:	//Stap 4:
 	//Start timer. Wanneer de deur na 10 seconden nog niet open is zal het pakket naar het ophaalpunt worden gebracht
-	IF GVL.BT_Deurbel THEN
 	Timer(IN := TRUE, PT := T#10S);
-	END_IF
-		
+	
 	//Wacht tot deur open gaat
 	IF GVL.BT_DeurOpen THEN
 		Timer(IN := FALSE);
@@ -63,8 +62,8 @@ CASE stap OF
 			
 	//Gaat de deur niet open wordt het pakken naar het ophaalpunt gebracht (stap 4)
 	ELSIF Timer.Q THEN
-		Timer(IN := FALSE);
 		stap := 3;
+		Timer(IN := FALSE);
 	END_IF
 		
 		
@@ -74,6 +73,7 @@ CASE stap OF
 	GVL.LED_PakketBijOHP := FALSE;
 		
 END_CASE
+
 
 
 
@@ -96,6 +96,7 @@ END_IF]]></ST>
       <LineId Id="92" Count="0" />
       <LineId Id="94" Count="0" />
       <LineId Id="96" Count="0" />
+      <LineId Id="103" Count="0" />
       <LineId Id="93" Count="0" />
       <LineId Id="12" Count="0" />
       <LineId Id="16" Count="6" />
@@ -116,16 +117,18 @@ END_IF]]></ST>
       <LineId Id="52" Count="0" />
       <LineId Id="76" Count="0" />
       <LineId Id="53" Count="1" />
-      <LineId Id="56" Count="1" />
+      <LineId Id="56" Count="0" />
       <LineId Id="77" Count="0" />
-      <LineId Id="80" Count="0" />
-      <LineId Id="58" Count="9" />
+      <LineId Id="58" Count="7" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="66" Count="0" />
       <LineId Id="55" Count="0" />
       <LineId Id="69" Count="0" />
       <LineId Id="71" Count="1" />
       <LineId Id="70" Count="0" />
       <LineId Id="73" Count="2" />
       <LineId Id="9" Count="0" />
+      <LineId Id="115" Count="0" />
       <LineId Id="34" Count="1" />
       <LineId Id="24" Count="4" />
       <LineId Id="23" Count="0" />
