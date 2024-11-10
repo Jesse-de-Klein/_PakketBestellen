@@ -8,7 +8,7 @@ END_VAR
 
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[//Functie kijkt in welke stap het programma zich bevindt en op basis daarvan toont het de bijbehorende status
+      <ST><![CDATA[//Functie kijkt in welke stap het PostNL programma zich bevindt en op basis daarvan toont het de bijbehorende status
 CASE stap OF
 	0:	TrackAndTraceInfo := 'Pakket nog niet ontvangen van webshop.';
 	1:	TrackAndTraceInfo := 'Pakket ontvangen en wordt gesorteerd.';
@@ -17,6 +17,7 @@ CASE stap OF
 	4:	TrackAndTraceInfo := 'Bezorger is onderweg.';
 	5:	TrackAndTraceInfo := 'Pakket is in uw handen!';
 	ELSE
+		//Is er geen stap bekend, wordt de T&T info als onbekend weergegeven
 		TrackAndTraceInfo := 'Status onbekend.';
 END_CASE]]></ST>
     </Implementation>
@@ -27,7 +28,9 @@ END_CASE]]></ST>
       <LineId Id="12" Count="2" />
       <LineId Id="11" Count="0" />
       <LineId Id="23" Count="0" />
-      <LineId Id="15" Count="1" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="16" Count="0" />
       <LineId Id="10" Count="0" />
     </LineIds>
   </POU>

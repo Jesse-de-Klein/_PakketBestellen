@@ -16,11 +16,14 @@ END_VAR
 CASE stap OF
 
 	0:	//Stap 0: Bestelling nog niet geplaatst, alle waarde op 0
+	
+	//Alle waarden worden gereset
 	GVL.LED_BestellingGeplaatst := FALSE;
 	GVL.LED_BestellingIngepakt 	:= FALSE;
 	GVL.LED_BestellingGeplaatst := FALSE;
 	GVL.TEMP_Overhandigen		:= FALSE;
 	
+	//Wacht tot bestelling geplaatst wordt
 	IF GVL.BT_BestellingPlaatsen THEN
 		GVL.TEMP_OhpOfBezorgen := GVL.SW_OphalenOfBezorgen;
 		GVL.LED_BestellingGeplaatst := TRUE;
@@ -30,6 +33,8 @@ CASE stap OF
 	
 	
 	1:	//Stap 1: Bestelling is geplaatst wachten op inpakken
+	
+	//Wacht tot bestelling wordt ingepakt
 	IF GVL.BT_BestellingIngepakt THEN
 		GVL.LED_BestellingIngepakt := TRUE;
 		stap := 2;
@@ -38,6 +43,8 @@ CASE stap OF
 	
 	
 	2:	//Stap 2: Bestelling is ingepakt en wordt overhandigd aan PostNL
+	
+	//Wacht to pakket wordt overhandigd aan PostNL
 	IF GVL.BT_Overhandigen THEN
 		GVL.TEMP_Overhandigen := GVL.BT_Overhandigen;
 	END_IF
@@ -58,10 +65,12 @@ END_IF
       <LineId Id="88" Count="1" />
       <LineId Id="109" Count="0" />
       <LineId Id="104" Count="0" />
+      <LineId Id="158" Count="1" />
       <LineId Id="115" Count="0" />
       <LineId Id="125" Count="0" />
       <LineId Id="142" Count="1" />
       <LineId Id="116" Count="0" />
+      <LineId Id="160" Count="0" />
       <LineId Id="105" Count="0" />
       <LineId Id="135" Count="0" />
       <LineId Id="141" Count="0" />
@@ -69,12 +78,14 @@ END_IF
       <LineId Id="110" Count="0" />
       <LineId Id="117" Count="1" />
       <LineId Id="111" Count="0" />
+      <LineId Id="153" Count="1" />
       <LineId Id="120" Count="0" />
       <LineId Id="130" Count="0" />
       <LineId Id="129" Count="0" />
       <LineId Id="123" Count="0" />
       <LineId Id="112" Count="1" />
       <LineId Id="131" Count="1" />
+      <LineId Id="156" Count="1" />
       <LineId Id="136" Count="0" />
       <LineId Id="140" Count="0" />
       <LineId Id="138" Count="0" />
