@@ -1,4 +1,4 @@
-# Task 2
+# Taak 2
 
 State diagram die Task 2 weergeeft.
 
